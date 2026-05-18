@@ -90,5 +90,94 @@ Output Response -
 ['Mango', 'Orange', 'Apple', 'Banana']
 ```
 
+
+---
+------
+
+
+Another thing about mutability we have to understand is after the modification is done, the memory address of the list should be same
+Its not re-assignment.
+
+```
+# lists  
+l1 = ["Mango", "Orange", "Apple"] 
+print(l1)
+print(f"ID of L1 before the change is done : {id(l1)}")  
+l1.append("Banana")  
+print(l1)  
+print(f"ID of L1 after the change is done : {id(l1)}")
+
+Output Response -
+['Mango', 'Orange', 'Apple']
+ID of L1 before the change is done : 2064277943680
+['Mango', 'Orange', 'Apple', 'Banana']
+ID of L1 after the change is done : 2064277943680
+```
+
+The memory address remain the same and we confirm that Lists are mutable
+The state is not changed. The existing list is being modified.
+
 ---
 ---
+
+There is another way with which we change lists or mutable data-types in Python is by changing the value of a particular index (changing the value by using a particular index)
+This is also considered as mutability since we are modifying the list
+If a data-type is able to change the state of its own without changing address of itself is called mutability
+
+```
+# mutability examples  
+l2 = ["Mango", "Orange", "Aple"]  
+print(l2)  
+print(f"ID of L2 before the change is done : {id(l2)}")  
+l2[-1] = "Apple"  
+print(l2)  
+print(f"ID of L2 after the change is done : {id(l2)}")
+
+Output Response - 
+['Mango', 'Orange', 'Aple']
+ID of L2 before the change is done : 1358452355648
+['Mango', 'Orange', 'Apple']
+ID of L2 after the change is done : 1358452355648
+```
+
+
+Tuples & Strings cannot do this since they are immutable.
+
+Tuples -
+```
+# mutability examples with tuples - not possible  
+fruits = ("apple", "banana", "chery")  
+print(fruits)  
+fruits[-1] = "cherry"  
+print(fruits)
+
+Output Response -
+('apple', 'banana', 'chery')
+Traceback (most recent call last):
+  File "D:\Python\PythonTTDTutorial\Tuples, Sets & Dictionaries\ListsAreMutable-TuplesAreNot.py", line 35, in <module>
+    fruits[-1] = "cherry"
+    ~~~~~~^^^^
+TypeError: 'tuple' object does not support item assignment
+```
+
+Strings
+```
+# mutability examples with strings - not possible  
+s2 = "Python is Fun"  
+print(s2)  
+s2[0] = "J"  
+print(s2)
+
+Output Response -
+Python is Fun
+Traceback (most recent call last):
+  File "D:\Python\PythonTTDTutorial\Tuples, Sets & Dictionaries\ListsAreMutable-TuplesAreNot.py", line 41, in <module>
+    s2[0] = "J"
+    ~~^^^
+TypeError: 'str' object does not support item assignment
+```
+
+----
+---
+
+
