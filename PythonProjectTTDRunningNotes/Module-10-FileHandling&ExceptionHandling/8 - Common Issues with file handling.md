@@ -1,2 +1,13 @@
 
-Hello
+- The filename which we are using doesn't exist and we try to open it with read mode
+	- We get an error called "File Not Found"
+- We open the file in read mode and we try to write the file
+	- We get an error called "Unsupported Operation - Not writable"
+	- To write a write, we have to open in any of the write mode available [a, w, x]
+- We open the file in write mode [a, w, x] and we try to read the file
+	- We get an error called "Unsupported Operation - Not readable"
+	- To read a file, we have to open the file in read mode
+		- The filehandler's first line will get executed but the next line would throw errors.
+- We create a file in x mode even though we have a file already exists
+	- We get an error called "File already exists"
+	- If the file already exists, we should check that first and shouldn't use x mode, instead we can use w, a mode.
