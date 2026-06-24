@@ -54,3 +54,60 @@ False
 		- import re => Way to import RE module
 			- There are many functions like search function, match function, match function, find all function, find other functions present in RE
 			- The basic function is search function, re.search
+				- re.search(regex_pattern, string)
+					- the regex pattern will be searched inside the string like how the exact substring is being found inside the string message
+					- re.search function returns something called as match object when there is a match found, else return None
+
+```
+"""  
+re.search(regex, string)  
+=> returns a match object when there is a match found, else returns None  
+"""  
+  
+import re  
+message = "The current Python version is 3.14. Other previous versions are 3.13, 3.12, 3.11."  
+match_object = re.search("13",message)  
+print(match_object)  
+  
+if re.search("13",message):  
+    print("Found")  
+else:  
+    print("Not Found")
+
+# cross-verify
+print(message[66:68])
+
+Output Response -
+<re.Match object; span=(66, 68), match='13'>
+Found
+13
+```
+
+- The span includes the starting index and excludes the tailing index.
+	- It just provides the info on from where to where the match has been found.
+	- It indicates which indexes are found.
+	- So if i have to verify it, then if i print(message[66:68]) -> this will exactly give my pattern.
+		- Same thing we find when we do the slicing.
+		- The characters found starts at the index 66 and goes till 68 excluding 68
+
+```
+"""  
+re.search(regex, string)  
+=> returns a match object when there is a match found, else returns None  
+"""  
+  
+import re  
+message = "The current Python version is 3.14. Other previous versions are 3.13, 3.12, 3.11."  
+match_object = re.search("23",message)  
+print(match_object)  
+  
+if re.search("23",message):  
+    print("Found")  
+else:  
+    print("Not Found")
+    
+Output Response -
+None
+Not Found
+```
+
